@@ -7,6 +7,7 @@
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
     <UserSecretsId>42ab86c2-32d1-41c6-96b3-f52f607de17d</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

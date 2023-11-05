@@ -33,6 +33,9 @@ namespace RecipeService.ExceptionFilters
 
                     break;
 
+                default:
+                    context.Result=GetProblemDetails(context, HttpStatusCode.InternalServerError,"An error occured. ");
+                    break;
             }
 
             return;
