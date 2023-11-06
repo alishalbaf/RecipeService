@@ -30,10 +30,10 @@ namespace RecipeService.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<IEnumerable<RecipeDto>>> Get(int? start=null,int? pageSize= null)
+        public async Task<ActionResult<IEnumerable<RecipeDto>>> Get([FromQuery]PageDto paggingQuery)
         {
             _logger?.LogInformation("Returnnig all Recipes");
-            var result = await recipeService.GetAllRecipeAsync(start,pageSize);
+            var result = await recipeService.GetAllRecipeAsync(paggingQuery);
             if (result.Any())
                 return Ok(result);
             return NotFound();

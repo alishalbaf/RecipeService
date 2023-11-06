@@ -45,11 +45,11 @@ namespace RecipeService.Services
             return numOfAffected>0;
         }
 
-        public async Task<IEnumerable<RecipeDto>> GetAllRecipeAsync(int? startIndex,int? pageSize)
+        public async Task<IEnumerable<RecipeDto>> GetAllRecipeAsync(PageDto pageDto)
         {
             var listQuery = recipeDbContext.Recipes.Include(r=>r.Ingredients).AsQueryable();
-            if (startIndex is not null) listQuery = listQuery.Skip(startIndex.Value);
-            if (pageSize is not null) listQuery=listQuery.Take(pageSize.Value);
+            if (pageDto.StartIndex is not null) listQuery = listQuery.Skip(pageDto.StartIndex.Value);
+            if (pageDto.PageSize is not null) listQuery=listQuery.Take(pageDto.PageSize.Value);
 
             var recipes= await listQuery.ToListAsync();
             return mapper.Map<IEnumerable<RecipeDto>>(recipes);
