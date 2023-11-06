@@ -8,12 +8,16 @@ namespace RecipeService.ExceptionFilters
 {
     public class RecipeExceptionFilter : BaseExceptionFilter
     {
-        public RecipeExceptionFilter(ProblemDetailsFactory problemDetailsFactory) : base(problemDetailsFactory)
+        private readonly ILogger<BaseExceptionFilter> logger;
+
+        public RecipeExceptionFilter(ProblemDetailsFactory problemDetailsFactory, ILogger<BaseExceptionFilter> logger) : base(problemDetailsFactory)
         {
+            this.logger = logger;
         }
 
         public override void OnException(ExceptionContext context)
         {
+            logger.LogError($"{context.Exception.Message} at {context.Exception.StackTrace}");
             //only catch Domain Exception
             //if (context.Exception is not DomainException) return;
             switch (context.Exception)

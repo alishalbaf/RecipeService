@@ -25,6 +25,8 @@ namespace RecipeService.Controllers
         ///  
         /// </summary>
         /// <returns> List of Recipes </returns>
+        /// <response code="200">Returns a list of recipes</response>
+        /// <response code="404">If there is no recipes</response>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -42,6 +44,8 @@ namespace RecipeService.Controllers
         /// </summary>
         /// <param name="Id"> Id of recipe</param>
         /// <returns>single Recipe </returns>
+        /// <response code="200">Returns a specifiec recipe</response>
+        /// <response code="404">If the recipe is null</response>
         [HttpGet("{Id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -59,6 +63,8 @@ namespace RecipeService.Controllers
         /// </summary>
         /// <param name="recipe"> Recipe </param>
         /// <returns>Id of newly created Recipe and whole object</returns>
+        /// <response code="201">Returns the newly created recipe</response>
+        /// <response code="400">If the recipe is null</response>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -76,6 +82,8 @@ namespace RecipeService.Controllers
         /// <param name="Id">Id of recipe to be updated</param>
         /// <param name="recipe"> Recipe to update</param>
         /// <returns>if updated return NoContent , if not found return NotFound</returns>
+        /// <response code="204">if the Recipe is successfully updated</response>
+        /// <response code="404">If the recipe is not found for update</response>
         [HttpPut("{Id}")]  //RFC 7230 to 7235 - 7231 section 4.3.4
         [HttpPatch("{Id}")] //partial Update
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -96,6 +104,8 @@ namespace RecipeService.Controllers
         /// </summary>
         /// <param name="Id"></param>
         /// <returns>if Deleted return NoContent , if not found return NotFound</returns>
+        /// <response code="204">if the Recipe is successfully deleted</response>
+        /// <response code="404">If the recipe is not found for delete</response>
         [HttpDelete("{Id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
