@@ -2,7 +2,7 @@
 
 namespace RecipeService.DTO
 {
-    public class IngredientDto
+    public record IngredientDto
     {
         [Required]
         public string Name { get; set; }

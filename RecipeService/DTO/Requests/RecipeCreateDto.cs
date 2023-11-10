@@ -2,7 +2,7 @@
 #pragma warning disable CS1591
 namespace RecipeService.DTO.Requests
 {
-    public class RecipeCreateDto
+    public record RecipeCreateDto
     {
         [Required]
         public string Name { get; set; }

@@ -2,7 +2,7 @@
 #pragma warning disable CS1591
 namespace RecipeService.DTO
 {
-    public class RecipeDto
+    public record RecipeDto
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "The Name is Required")]

@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 
 namespace RecipeService.DTO.Requests
 {
-    public class RecipeUpdateDto
+    public record RecipeUpdateDto
     {
         
         [FromQuery]
